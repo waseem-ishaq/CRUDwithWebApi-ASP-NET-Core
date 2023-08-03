@@ -1,0 +1,110 @@
+﻿@model IEnumerable<ConsumeApi.Models.Employee>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" />
+
+
+
+<h2>Employees</h2>
+<div>
+    <a class="btn btn-sm btn-warning m-1 float-end" asp-controller="" asp-action="">
+        LogOut
+    </a>
+</div>
+
+<form>
+    <button asp-action="Create" asp-controller="ConsumeController1" class="btn btn-primary mb-3"> Create Employee </button>
+    <table class="table table-bordered table-responsive table-hover" id="example">
+        <thead>
+            <tr class="table-active">
+                <th> @Html.DisplayNameFor(model => model.id) </th>
+                <th> @Html.DisplayNameFor(model => model.name) </th>
+                <th> @Html.DisplayNameFor(model => model.age) </th>
+                <th> @Html.DisplayNameFor(model => model.gender) </th>
+                <th> Action </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td> @Html.DisplayFor(modelItem => item.id) </td>
+                    <td> @Html.DisplayFor(modelItem => item.name) </td>
+                    <td> @Html.DisplayFor(modelItem => item.age) </td>
+                    <td> @Html.DisplayFor(modelItem => item.gender) </td>
+                    <td>
+                        <div class="btn-group btn-group-sm">
+                            <div class="m-2">
+                                <a asp-route-id="@item.id" asp-action="Edit" asp-controller="ConsumeController1" class="btn btn-success"> Edit </a>
+                            </div>
+                            
+                            <div class="m-2">
+                                <a asp-route-id="@item.id" asp-action="Delete" asp-controller="ConsumeController1" class="btn btn-danger btn-delete"> Delete </a>
+
+                            </div>
+                            
+                            <div class="m-2">
+                                <a asp-route-id="@item.id" asp-action="Details" asp-controller="ConsumeController1" class="btn btn-primary btn-details"> Details </a>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</form>
+@*
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gender)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.age)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gender)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+*@
