@@ -85,7 +85,7 @@ namespace ADOWebApiCRUD.Models
                 int i = cmd.ExecuteNonQuery();
                 con.Close();
 
-                if (i > 0)
+                if (i > 0) 
                 {
                     msg = "Data has been inserted";
                 }
